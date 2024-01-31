@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Dashboard from "./Components/Dashboard";
 
 export default function Home() {
   return (
     <main className="">
-      <h1>Welocm here every one</h1>
+      <Dashboard />
     </main>
   );
 }
