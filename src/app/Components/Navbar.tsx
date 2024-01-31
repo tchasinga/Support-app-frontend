@@ -19,7 +19,7 @@ export default function Navbar() {
       </div>
 
       <div className="">
-        <Link href="/">
+        <Link href='/login'>
         <DefaultButton text="Login now"  allowDisabledFocus  />
         </Link>
       </div>

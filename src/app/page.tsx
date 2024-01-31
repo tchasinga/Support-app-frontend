@@ -3,7 +3,7 @@ import Dashboard from "./Components/Dashboard";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="max-w-4xl mx-auto">
       <Dashboard />
     </main>
   );
