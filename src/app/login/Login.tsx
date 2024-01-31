@@ -1,8 +1,12 @@
+
+"use client"
+
 import React, { useState } from 'react';
 import { DefaultButton, Text, TextField } from "@fluentui/react";
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from "next/navigation";
+import { AnyNaptrRecord } from 'dns';
 
 
 export default function Login() {
@@ -17,29 +21,23 @@ export default function Login() {
     }));
   };
 
-  const handleLogin = async (e: any) => {
-    e.preventDefault();
-    const { email, password } = credentials;
-    const result = await signIn('credentials', {
-      redirect: false,
-      email,
-      password
-    });
-
-    if (!result?.error) {
-      console.log('Logged in successfully');
-        router.push('/');
-    } else {
-      console.error('Login failed:', result.error);
-    }
-  };
+  const handlerFormSubmit = async (ev : any) => {
+    ev.preventDefault();
+ 
+    await signIn('credentials' , {
+      route: '/',
+      email: '',
+      password: ''
+    })
+   
+  }
 
   return (
     <div className='max-w-4xl mx-auto flex flex-col justify-center w-full items-center py-40'>
         <Text variant='xxLarge'>Login page</Text>
         
         <div className="">
-            <form className='flex flex-col gap-4 pt-5' onSubmit={handleLogin}>
+            <form className='flex flex-col gap-4 pt-5' onSubmit={handlerFormSubmit}>
                 <div>
                     <TextField 
                       className='w-96' 
