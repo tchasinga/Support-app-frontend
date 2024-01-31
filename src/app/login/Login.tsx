@@ -1,12 +1,11 @@
 
-"use client"
 
+"use client"
 import React, { useState } from 'react';
 import { DefaultButton, Text, TextField } from "@fluentui/react";
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from "next/navigation";
-import { AnyNaptrRecord } from 'dns';
 
 
 export default function Login() {
@@ -14,36 +13,39 @@ export default function Login() {
     const router = useRouter();
 
   const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setCredentials(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+    e.preventDefault();
+    setCredentials({ ...credentials, [e.target.id]: e.target.value.trim() });
   };
 
-  const handlerFormSubmit = async (ev : any) => {
-    ev.preventDefault();
- 
-    await signIn('credentials' , {
-      route: '/',
-      email: '',
-      password: ''
-    })
-   
-  }
+  const handleLogin = async (e: any) => {
+    e.preventDefault();
+    const { email, password } = credentials;
+    const result = await signIn('credentials', {
+      redirect: false,
+      email,
+      password
+    });
+    if (result?.error) {
+      alert(result.error);
+    } else {
+      console.log('Logged in successfully');
+      router.push('/');
+    }
+  };
 
   return (
     <div className='max-w-4xl mx-auto flex flex-col justify-center w-full items-center py-40'>
         <Text variant='xxLarge'>Login page</Text>
         
         <div className="">
-            <form className='flex flex-col gap-4 pt-5' onSubmit={handlerFormSubmit}>
+            <form className='flex flex-col gap-4 pt-5' onSubmit={handleLogin}>
                 <div>
                     <TextField 
                       className='w-96' 
                       type='email' 
                       placeholder="Please enter your email" 
                       name="email" 
+                      id='email'
                       onChange={handleChange} 
                     />
                 </div>
@@ -55,6 +57,7 @@ export default function Login() {
                       canRevealPassword 
                       revealPasswordAriaLabel="Show password" 
                       name="password" 
+                      id='password'
                       onChange={handleChange} 
                     />
                 </div>
