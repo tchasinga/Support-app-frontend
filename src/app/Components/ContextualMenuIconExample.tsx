@@ -20,5 +20,5 @@ export default function ContextualMenuIconExample() {
     ],
   }));
 
-  return <DefaultButton text="Click for ContextualMenu" persistMenu menuProps={menuProps} />;
+  return <DefaultButton text="Web-pages" persistMenu menuProps={menuProps} />;
 }
