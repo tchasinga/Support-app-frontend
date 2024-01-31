@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Text } from "@fluentui/react";
+import { PrimaryButton } from "@fluentui/react";
 import  ContextualMenuIconExample  from "./ContextualMenuIconExample";
 
 
@@ -18,7 +18,7 @@ export default function Navbar() {
       </div>
 
       <div className="">
-        <Text variant="medium">Sign in</Text>
+        <PrimaryButton text="Login" />
       </div>
       </div> 
     </div>
