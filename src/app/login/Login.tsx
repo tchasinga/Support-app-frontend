@@ -19,10 +19,10 @@ export default function Login() {
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
-    const { username, password } = credentials;
+    const { email, password } = credentials;
     const result = await signIn('credentials', {
       redirect: false,
-      username,
+      email,
       password
     });
 
@@ -43,9 +43,9 @@ export default function Login() {
                 <div>
                     <TextField 
                       className='w-96' 
-                      type='text' 
-                      placeholder="Please enter your username" 
-                      name="username" 
+                      type='email' 
+                      placeholder="Please enter your email" 
+                      name="email" 
                       onChange={handleChange} 
                     />
                 </div>

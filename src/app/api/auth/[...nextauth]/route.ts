@@ -1,12 +1,12 @@
-import { NextAuth } from "next-auth";
-import { CredentialsOptions, CredentialsProvider } from "next-auth";
+import NextAuth from "next-auth";
+import Providers from "next-auth/providers";
 
 export default NextAuth({
   providers: [
-    CredentialsProvider({
+    Providers.Credentials({
       name: "Credentials",
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        username: { label: "email", type: "email", placeholder: "examplle@gmail.com" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: Record<string, string>) {
