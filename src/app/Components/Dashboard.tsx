@@ -6,8 +6,8 @@ import { Text } from "@fluentui/react";
 
 export default function Dashboard() {
   return (
-    <div className='max-w-4xl mx-auto'>
-       <div className="flex justify-center items-center justify-between">
+    <div className='max-w-4xl mx-auto w-full'>
+       <div className="flex justify-center items-center justify-between pt-16">
         {/* First Div */}
         <div className="">
         <Text variant="xxLarge" block>Welcom to support app managements</Text>
