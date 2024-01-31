@@ -1,46 +1,29 @@
-import NextAuth from "next-auth";
+import NextAuth from "next-auth"
+import CredentialsProvider from "next-auth/providers/credentials"
 
 
 export default NextAuth({
   providers: [
-    Providers.Credentials({
-      name: "Credentials",
+    CredentialsProvider({
+      name: 'Credentials',
       credentials: {
-        username: { label: "email", type: "email", placeholder: "examplle@gmail.com" },
-        password: { label: "Password", type: "password" },
+        email: { label: "email", type: "email", placeholder: "example@gmail.com" },
+        password: { label: "Password", type: "password" }
       },
-      async authorize(credentials: Record<string, string>) {
+      async authorize(credentials, req) {
         const res = await fetch('http://localhost:2000/api/auth/signinuser', {
           method: 'POST',
           body: JSON.stringify(credentials),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-
-        const user = await res.json();
-
+          headers: { "Content-Type": "application/json" }
+        })
+        const user = await res.json()
+  
         if (res.ok && user) {
-          return user;
-        } else {
-          return null;
+          return user
         }
+        // Return null if user data could not be retrieved
+        return null
       }
     })
-  ],
-  session: {
-    jwt: true
-  },
-callbacks: {
-    async jwt(token : any, user: any) {
-        if (user) {
-            token.id = user._id;
-        }
-        return token;
-    },
-    async session(session: any, token: any) {
-        session.user.id = token._id;
-        return session;
-    }
-}
+  ]
 });
