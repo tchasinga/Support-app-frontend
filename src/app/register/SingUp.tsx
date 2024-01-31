@@ -7,19 +7,23 @@ import Link from "next/link";
 export default function SingUp() {
     const [formData, setFormData] = useState({})
 
-    const handlerSingupChanges = (e) => {
-        e.preventDefault()
-        setFormData({...formData, [e.target.id]: e.target.value})
-        console.log(formData)
-    }
+    const handlerSingupChanges = (e: any) => {
+      e.preventDefault()
+      setFormData({...formData, [e.target.id]: e.target.value.trim()})
+      console.log(formData)
+  }
     console.log(formData)
+
+    const handlerDataSingUp = (e: any) => {
+      e.preventDefault()
+    }
 
   return (
     <div className='max-w-4xl mx-auto flex flex-col justify-center w-full items-center py-40'>
         <Text variant='xxLarge'>creating an account...</Text>
         
         <div className="">
-            <form className='flex flex-col gap-4 pt-5'>
+            <form className='flex flex-col gap-4 pt-5' onSubmit={handlerDataSingUp}>
                 <div>
                 <TextField type='text' className='w-96' id='username' onChange={handlerSingupChanges} placeholder="Please enter your name here" />
                 </div>
