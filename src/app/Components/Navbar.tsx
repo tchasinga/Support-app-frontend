@@ -10,7 +10,9 @@ export default function Navbar() {
   return (
     <div className="flex  items-center justify-between max-w-4xl mx-auto py-4">
       <div className="flex-auto">
+        <Link href='/'>
         <h1 className="">Support App</h1>
+        </Link>
       </div>
 
      <div className="flex gap-5 items-center">
