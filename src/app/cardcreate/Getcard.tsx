@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Text } from "@fluentui/react";
+import Link from "next/link";
 
 async function getCard() {
   const res = await fetch("http://localhost:2000/api/cardidea/findingideas", {
@@ -31,6 +32,7 @@ export default function Getcard() {
         {data &&
           data.map((card) => {
             return (
+              <Link href={`/cardcreate/${card._id}`} key={card._id}>
               <div key={card._id} className="mt-10 border-b flex flex-col p-4 bg-gray-300 rounded-xl">
                 <Text variant={"xLarge"}>{card.title}</Text>
                 <div className="my-1 flex flex-col justify-center">
@@ -39,6 +41,7 @@ export default function Getcard() {
                 </div>
                 <Text className='line-clamp-5 text-black font-normal' variant={"medium"}>{card.description}</Text>
               </div>
+              </Link>
             );
           })}
       </div>
