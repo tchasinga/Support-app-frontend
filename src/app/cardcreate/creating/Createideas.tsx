@@ -71,7 +71,7 @@ export default function Createideas() {
                 <div className="border">
                 <TextField id='description' type='text' multiline onChange={handleCreateChanges}/>
                 </div>
-
+                <DefaultButton className='mt-1 w-1/2' text="Create" type="submit" allowDisabledFocus />
              </form>
         </div>
     </div>
