@@ -1,8 +1,13 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Support app managements
 
-First, you need to cloone the repos by aplyign the following command
+Hello I'm tchasinga balolebwami and I've build this full satck app
+> under dataBalk police
+
+# Let's get stared...
+
+>First, you need to cloone the repos by aplyign the following command
 
 ```bash
 https://github.com/tchasinga/support-app-frontend.git
