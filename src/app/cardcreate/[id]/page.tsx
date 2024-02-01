@@ -24,7 +24,6 @@ async function fetchCardDetailsById(_id){
 
 export default function CarddetailsId({params}) {
     const { data, error } = fetchCardDetailsById(params._id);
-    if (error) return <div>{error.message}</div>;
     if (!data) return <div className="max-w-4xl mx-auto">Loading...</div>;
     console.log(data);
     return (
