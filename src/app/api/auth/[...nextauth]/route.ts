@@ -8,8 +8,9 @@ const handler = NextAuth({
     CredentialsProvider({
       // The name to display on the sign in form (e.g. 'Sign in with...')
       name: 'Credentials',
+      id: "credentials",
       credentials: {
-        username: { label: "email", type: "email", placeholder: "example@gmail.com" },
+        email: { label: "email", type: "email", placeholder: "example@gmail.com" },
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials, req) {

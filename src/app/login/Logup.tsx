@@ -12,28 +12,46 @@ export default function Logup() {
   // State variables for email and password
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSingUp, setIsSingUp] = useState<boolean>(false);
+  const [isSingUpError, setIsSingUpError] = useState<string | null>(null);
+
   const router = useRouter();
 
   // Function to handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      // Send sign in request to API route
+      setIsSingUp(true);
+      setIsSingUpError(null);
       const result = await signIn('credentials', {
         redirect: false,
         email,
         password,
       });
+      setIsSingUp(false);
+      setIsSingUpError(true);
       if (!result.error) {
         // Redirect user to dashboard or protected page
         router.push('/');
         router.refresh();
+        console.log('Authentication successful');
+        console.log(result);
+        setIsSingUpError(false);
+      }
+      if (setIsSingUpError) {
+        setTimeout(() => {
+          setIsSingUpError(false);
+        }, 3000);
       }
     } catch (error) {
+      setIsSingUp(false);
+      
       console.log(error);
       console.error('Authentication failed');
     }
   };
-  console.log(result);
+
 
   return (
     <div  className='max-w-4xl mx-auto flex flex-col justify-center w-full items-center py-40'>
@@ -59,10 +77,11 @@ export default function Logup() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <DefaultButton className='w-28' text="Login now" type="submit" allowDisabledFocus />
+        <DefaultButton className='w-28' disabled={isSingUp} text={isSingUp ? "Login..." : "Login now"} type="submit" allowDisabledFocus />
       </form>
       </div>
       <Text className='pt-4' variant='medium'>Don&apos;t have an account? <Link className='text-green-500 font-normal' href='/register'>Register now</Link></Text>
+      {isSingUpError && <Text className='pt-4 text-red-700' variant='medium'>Please dear user check your information...</Text>}
     </div>
   );
 }
