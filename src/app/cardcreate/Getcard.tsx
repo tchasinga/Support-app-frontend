@@ -26,11 +26,7 @@ export default function Getcard() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="mt-20 border-b">
-        <Text variant={"mega"}>
-          Get All creator Ideas <b /> support here
-        </Text>
-      </div>
+     
       <div className="newgridtemplate rounded">
         {data &&
           data.map((card) => {
@@ -41,7 +37,7 @@ export default function Getcard() {
                 <Text className="text-gray-900 font-medium" variant={"medium"}>{card.functionality}</Text>
                 <Text variant={"medium"}>{card.email}</Text>
                 </div>
-                <Text className='line-clamp-5' variant={"medium"}>{card.description}</Text>
+                <Text className='line-clamp-5 text-black font-normal' variant={"medium"}>{card.description}</Text>
               </div>
             );
           })}

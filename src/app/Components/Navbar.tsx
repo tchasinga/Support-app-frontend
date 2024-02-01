@@ -11,7 +11,7 @@ export default function Navbar() {
   const { data: session, status } = useSession();
 
   return (
-    <div className="flex  items-center justify-between max-w-4xl mx-auto py-4">
+    <div className="flex  items-center justify-between max-w-4xl mx-auto py-4 flex-wrap">
       <div className="flex-auto">
         <Link href="/">
           <h1 className="">Support App</h1>
@@ -38,6 +38,13 @@ export default function Navbar() {
              <DefaultButton
                 className=""
                 text="Create support ticket"
+              />
+            </Link>
+
+            <Link href="cardcreate">
+             <DefaultButton
+                className=""
+                text="See all tickets"
               />
             </Link>
             </>
