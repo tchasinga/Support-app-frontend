@@ -43,6 +43,7 @@ export default function Logup() {
             className='w-96' 
             type="email"
             id="email"
+            placeholder="Please enter your email" 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -52,6 +53,7 @@ export default function Logup() {
           <TextField
             type="password"
             id="password"
+            placeholder="Please enter your password" 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
