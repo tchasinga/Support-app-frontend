@@ -4,6 +4,8 @@ import React from "react";
 import { Text } from "@fluentui/react";
 import Image from "next/image";
 import Comment from "../../Components/Comment";
+import { format } from 'date-fns';
+
 
 async function getCard(_id) {
   try {
@@ -25,7 +27,7 @@ async function getCard(_id) {
 
 export default async function Carddetails({params}) {
     const ticket = await getCard(params.id)
-
+  
   return (
     <main className='max-w-4xl mx-auto min-h-screen py-10'>
       <nav>
@@ -37,7 +39,10 @@ export default async function Carddetails({params}) {
                 <div className="w-full border ">
                 <Image src={ticket.image} alt="Picture of the author" className="object-cover" width={'1000'} height={'1000'}/>
                 </div>
-                <Text variant={"xLarge"}>{ticket.title}</Text>
+               <div className="flex items-center justify-between">
+               <Text variant={"xLarge"}>{ticket.title}</Text>
+               <Text>{format(new Date(ticket.createdAt), 'dd/MM/yyyy')}</Text>
+               </div>
                 <div className="my-1 flex flex-col justify-center">
                 <Text className="text-gray-900 font-medium" variant={"medium"}>{ticket.functionality}</Text>
                 <Text className='line-clamp-5 text-black font-normal' variant={"medium"}>Created by : {ticket.author}</Text>

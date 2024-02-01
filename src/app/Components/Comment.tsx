@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { DefaultButton, Text , TextField } from "@fluentui/react";
 import { useRouter } from "next/navigation";
+import Commentgetting from "./Commentgetting";
 
 export default function Comment() {
     const router = useRouter();
@@ -47,6 +48,9 @@ export default function Comment() {
   return (
     <div className='flex flex-col justify-center items-center mt-36'>
         <Text variant='xLarge'>Add your point of view...</Text>
+        <div className="">
+          <Commentgetting />
+        </div>
         <div className="">
              <form className='mt-4 flex flex-col gap-2 flex-wrap w-full' onSubmit={handlerDatacreating}>
               <div className="">

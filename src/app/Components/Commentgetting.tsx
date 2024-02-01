@@ -33,7 +33,10 @@ export default function Commentgetting() {
           data.map((card) => {
             return (
               <div key={card._id} className="mt-10 border-b flex flex-col p-4 bg-gray-300 rounded-xl">
-                <Text variant={"xLarge"}>{card.user}</Text>
+                <div className="flex items-center bg-green-700 justify-center w-10 rounded-full h-10 ">
+                <Text  variant={"xLarge"}>{card.user[0]}</Text>
+                <Text  variant={"xLarge"}>{card.user[1]}</Text>
+                </div>
                 <div className="my-1 flex flex-col justify-center">
                 <Text className="text-gray-900 font-medium" variant={"medium"}>{card.commenting}</Text>
                 </div>
