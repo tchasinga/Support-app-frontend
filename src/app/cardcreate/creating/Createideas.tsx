@@ -39,7 +39,7 @@ export default function Createideas() {
                 }
             );
             data = await response.json();
-            router.push("/");
+            router.push("/cardcreate");
             router.refresh();
             setIsCreating(false);
             console.log(data);
