@@ -1,10 +1,9 @@
-
-
 "use strict";
 // Import dependencies
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from "next/navigation";
+import { DefaultButton, Text, TextField } from "@fluentui/react";
 
 
 // Define the Login page component
@@ -35,12 +34,13 @@ export default function Logup() {
   };
 
   return (
-    <div>
-      <h1>Login Page</h1>
-      <form onSubmit={handleSubmit}>
+    <div  className='max-w-4xl mx-auto flex flex-col justify-center w-full items-center py-40'>
+       <Text variant='xxLarge'>Login page</Text>
+      <div className="">
+      <form className='flex flex-col gap-4 pt-5' onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email:</label>
-          <input
+          <TextField
             type="email"
             id="email"
             value={email}
@@ -49,8 +49,7 @@ export default function Logup() {
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
-          <input
+          <TextField
             type="password"
             id="password"
             value={password}
@@ -58,8 +57,9 @@ export default function Logup() {
             required
           />
         </div>
-        <button type="submit">Sign In</button>
+        <DefaultButton className='w-28' text="Login now" type="submit" allowDisabledFocus />
       </form>
+      </div>
     </div>
   );
 }
