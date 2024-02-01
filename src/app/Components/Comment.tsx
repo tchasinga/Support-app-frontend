@@ -21,9 +21,7 @@ export default function Comment() {
       };
 
         const handlerDatacreating = async (e: any) => {
-            if (!formData.author || !formData.functionality || !formData.email || !formData.title || !formData.description) {
-            return;
-            }
+           
             e.preventDefault();
             let data;
             try {

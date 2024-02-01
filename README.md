@@ -2,35 +2,63 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, you need to cloone the repos by aplyign the following command
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+https://github.com/tchasinga/support-app-frontend.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Following step 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The installation of Node_module to install all the package
 
-## Learn More
+```
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## After that you run
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+npm run dev
+```
 
-## Deploy on Vercel
+## After done to clooning the frontend side 
+## You can now clone the backend 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ run this command to clone the backend repository
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ ```
+ https://github.com/tchasinga/support-app-backend.git
+ ```
+
+ ### Install  all possible dependency
+
+ ```
+ npm install
+ ```
+
+ ## Launch the project backend
+
+ ```
+ npm run dev
+ ```
+
+ Click [this links to go to backend](https://github.com/tchasinga/support-app-backend)
+
+
+## Video presentation 
+
+- Note that this presentation was achived is local machine to enseure you 
+that the project was achived without any errors 
+
+Click this [links to watch the video]()
+
+## acknowledgement
+
+During this 24 hour of this coding assessment i've learn and add skills, how really  to manage a time and improve my search skills and practice skills and more again i've learn how to bring solution in professional way 
+and write a clean code , 
+
+>I just wanna say thanks to dataBalk for this learning opportinity 
+
