@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from "next/navigation";
 import { DefaultButton, Text, TextField } from "@fluentui/react";
-
+import Link from 'next/link';
 
 // Define the Login page component
 export default function Logup() {
@@ -62,6 +62,7 @@ export default function Logup() {
         <DefaultButton className='w-28' text="Login now" type="submit" allowDisabledFocus />
       </form>
       </div>
+      <Text className='pt-4' variant='medium'>Don&apos;t have an account? <Link className='text-green-500 font-normal' href='/register'>Register now</Link></Text>
     </div>
   );
 }
