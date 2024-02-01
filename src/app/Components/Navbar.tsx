@@ -7,13 +7,12 @@ import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
+  
   const { data: session, status } = useSession();
-  let userName, userEmail;
+  const userName = session?.user?.username;
+  const userEmail = session?.user?.email;
+  console.log(session);
 
-  if (status === "authenticated") {
-    userName = session?.user?.username;
-    userEmail = session?.user?.email;
-  }
   return (
     <div className="flex  items-center justify-between max-w-4xl mx-auto py-4">
       <div className="flex-auto">
