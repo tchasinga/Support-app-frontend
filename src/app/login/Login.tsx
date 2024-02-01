@@ -19,17 +19,21 @@ export default function Login() {
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
-    const { email, password } = credentials;
-    const result = await signIn('credentials', {
-      redirect: false,
-      email,
-      password
-    });
-    if (result?.error) {
-      alert(result.error);
-    } else {
-      console.log('Logged in successfully');
-      router.push('/');
+    try {
+      const response = await signIn('credentials', {
+        redirect: false,
+        email: credentials.email,
+        password: credentials.password,
+      });
+      if (response !== undefined) {
+        alert('Logged in successfully');
+        router.push('/');
+        router.refresh();
+
+      }
+    } catch (error) {
+      console.log(error);
+      alert('Login failed');
     }
   };
 
