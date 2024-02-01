@@ -2,7 +2,10 @@
 "use client";
 import React, { useState } from "react";
 import { DefaultButton, Text , TextField } from "@fluentui/react";
+import { useRouter } from "next/navigation";
+
 export default function Createideas() {
+    const router = useRouter();
     const [formData, setFormData] = useState({
         author: "",
         functionality: "",
@@ -34,6 +37,8 @@ export default function Createideas() {
                 }
             );
             data = await response.json();
+            router.push("/");
+            router.refresh();
             console.log(data);
             } catch (error) {
             console.log(error);
