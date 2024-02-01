@@ -30,7 +30,8 @@ export default function Login() {
         alert('Logged in successfully');
         router.push('/');
         router.refresh();
-
+      }{
+        alert('Login failed');
       }
     } catch (error) {
       console.log(error);
