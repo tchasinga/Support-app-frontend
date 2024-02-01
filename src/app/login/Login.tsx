@@ -12,32 +12,7 @@ export default function Login() {
   const [credentials, setCredentials] = useState<Record<string, string>>({});
     const router = useRouter();
 
-  const handleChange = (e: any) => {
-    e.preventDefault();
-    setCredentials({ ...credentials, [e.target.id]: e.target.value.trim() });
-  };
 
-  const handleLogin = async (e: any) => {
-    e.preventDefault();
-    try {
-      const { email, password } = credentials;
-      const result = await signIn('credentials', {
-        redirect: false,
-        email,
-        password
-      });
-      if (result !== null) {
-        alert('Logged in successfully');
-        router.push('/');
-        router.refresh();
-      }{
-        alert('Login failed');
-      }
-    } catch (error) {
-      console.log(error);
-      alert('Login failed');
-    }
-  };
 
   return (
     <div className='max-w-4xl mx-auto flex flex-col justify-center w-full items-center py-40'>
