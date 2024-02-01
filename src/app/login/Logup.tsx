@@ -17,21 +17,23 @@ export default function Logup() {
   // Function to handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = await signIn('credentials', {
-      redirect: false,
-      email,
-      password,
-    });
-    if (!result.error) {
-      // Redirect user to dashboard or protected page
-      router.push('/');
-      router.refresh();
-    } else {
-      // Handle authentication error
+    try {
+      const result = await signIn('credentials', {
+        redirect: false,
+        email,
+        password,
+      });
+      if (!result.error) {
+        // Redirect user to dashboard or protected page
+        router.push('/');
+        router.refresh();
+      }
+    } catch (error) {
+      console.log(error);
       console.error('Authentication failed');
     }
-    console.log(result);
   };
+  console.log(result);
 
   return (
     <div  className='max-w-4xl mx-auto flex flex-col justify-center w-full items-center py-40'>
@@ -46,7 +48,6 @@ export default function Logup() {
             placeholder="Please enter your email" 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
         </div>
         <div>
@@ -56,7 +57,6 @@ export default function Logup() {
             placeholder="Please enter your password" 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </div>
         <DefaultButton className='w-28' text="Login now" type="submit" allowDisabledFocus />
