@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function Createideas() {
     const router = useRouter();
+    const [isCreating, setIsCreating] = useState<boolean>(false);
     const [formData, setFormData] = useState({
         author: "",
         functionality: "",
@@ -28,6 +29,7 @@ export default function Createideas() {
             e.preventDefault();
             let data;
             try {
+            setIsCreating(true);
             const response = await fetch(
                 "http://localhost:2000/api/cardidea/creatingideas",
                 {
@@ -39,6 +41,7 @@ export default function Createideas() {
             data = await response.json();
             router.push("/");
             router.refresh();
+            setIsCreating(false);
             console.log(data);
             } catch (error) {
             console.log(error);
@@ -71,7 +74,7 @@ export default function Createideas() {
                 <div className="border">
                 <TextField id='description' type='text' multiline onChange={handleCreateChanges}/>
                 </div>
-                <DefaultButton className='mt-1 w-1/2' text="Create" type="submit" allowDisabledFocus />
+                <DefaultButton className='mt-1 w-1/2' text={isCreating ? "Creating..." : "Create now"} type="submit" allowDisabledFocus />
              </form>
         </div>
     </div>
