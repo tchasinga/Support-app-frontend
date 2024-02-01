@@ -3,6 +3,7 @@
 import React from "react";
 import { Text } from "@fluentui/react";
 import Image from "next/image";
+import Comment from "../../Components/Comment";
 
 async function getCard(_id) {
   try {
@@ -48,6 +49,7 @@ export default async function Carddetails({params}) {
       ) : (
         <p>Loading...</p>
       )}
+      <Comment />
     </main>
   );
 }
