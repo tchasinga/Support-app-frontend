@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { DefaultButton, Text , TextField } from "@fluentui/react";
 import { useRouter } from "next/navigation";
 
-export default function Createideas() {
+export default function Comment() {
     const router = useRouter();
     const [isCreating, setIsCreating] = useState<boolean>(false);
     const [formData, setFormData] = useState({
@@ -46,11 +46,9 @@ export default function Createideas() {
 
   return (
     <div className='flex flex-col justify-center items-center mt-36'>
-        <Text variant='xLarge'>Creating ideas user </Text>
+        <Text variant='xLarge'>Add your point of view...</Text>
         <div className="">
              <form className='mt-4 flex flex-col gap-2 flex-wrap w-full' onSubmit={handlerDatacreating}>
-
-            
               <div className="">
                     <TextField className='w-96'  id='user' type='text' placeholder="Specifier your name here" onChange={handleCreateChanges}/>
                 </div>
