@@ -9,9 +9,6 @@ import { signOut, useSession } from "next-auth/react";
 export default function Navbar() {
   
   const { data: session, status } = useSession();
-  const userName = session?.user?.username;
-  const userEmail = session?.user?.email;
-  console.log(session);
 
   return (
     <div className="flex  items-center justify-between max-w-4xl mx-auto py-4">
@@ -37,7 +34,12 @@ export default function Navbar() {
                 type="submit"
                 allowDisabledFocus
               />
-              <p>Welcome {userName} {userEmail}</p>
+             <Link href="cardcreate/creating">
+             <DefaultButton
+                className=""
+                text="Create support ticket"
+              />
+            </Link>
             </>
           ) : (
             <Link href="/login">
