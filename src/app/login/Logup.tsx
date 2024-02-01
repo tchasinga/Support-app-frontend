@@ -39,8 +39,8 @@ export default function Logup() {
       <div className="">
       <form className='flex flex-col gap-4 pt-5' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email">Email:</label>
           <TextField
+            className='w-96' 
             type="email"
             id="email"
             value={email}
