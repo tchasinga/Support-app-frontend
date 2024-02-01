@@ -20,12 +20,13 @@ export default function Login() {
   const handleLogin = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await signIn('credentials', {
+      const { email, password } = credentials;
+      const result = await signIn('credentials', {
         redirect: false,
-        email: credentials.email,
-        password: credentials.password,
+        email,
+        password
       });
-      if (response !== undefined) {
+      if (result !== null) {
         alert('Logged in successfully');
         router.push('/');
         router.refresh();
